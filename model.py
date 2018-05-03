@@ -19,7 +19,7 @@ def leaky_relu(x, alpha):
     return tf.nn.relu(x) - alpha * tf.nn.relu(-x)
 
 
-def classifier(inputs):
+def classifier(inputs, classnum=12):
     x = inputs
     h = 128
     initializer = tf.random_normal_initializer(0, 0.02)
@@ -49,7 +49,7 @@ def classifier(inputs):
     x = tf.layers.dense(x, h, kernel_initializer=initializer)
     x = lrelu(x)
 
-    x = tf.layers.dense(x, 12, kernel_initializer=initializer)
+    x = tf.layers.dense(x, classnum, kernel_initializer=initializer)
     x = tf.nn.softmax(x)
 
     return x
