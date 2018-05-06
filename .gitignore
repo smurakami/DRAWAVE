@@ -1,3 +1,4 @@
 data/*.npy
 *.log
 checkpoint/*
+saved_model
